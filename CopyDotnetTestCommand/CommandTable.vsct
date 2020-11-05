@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- IDs for commands exposed by VisualStudio -->
+  <Extern href="stdidcmd.h"/>
+
+  <!-- Command ids for menus provided by shell -->
+  <Extern href="vsshlids.h"/>
+
+  <Commands package="guidExtensionPackage">
+    <Groups>
+      <Group guid="guidExtensionPackageCmdSet" id="CopyCommandMenuGroupId" />
+    </Groups>
+
+    <Buttons>
+      <Button guid="guidExtensionPackageCmdSet" id="CopyCommandId" type="Button" priority="0x0100">
+        <Parent guid="guidExtensionPackageCmdSet" id="CopyCommandMenuGroupId" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>TextOnly</CommandFlag>
+        <Strings>
+          <ButtonText>Copy as 'dotnet test' command</ButtonText>
+          <CommandName>CopyAsDotnetTestCommand</CommandName>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <CommandPlacements>
+    <!-- Test menu -->
+    <CommandPlacement guid="guidExtensionPackageCmdSet" id="CopyCommandMenuGroupId" priority="0x0010">
+      <Parent guid="guidVSTestMenu" id="IDM_VS_MENU_TEST" />
+    </CommandPlacement>
+
+    <!-- Right click in editor -->
+    <CommandPlacement guid="guidExtensionPackageCmdSet" id="CopyCommandMenuGroupId" priority="0x0150">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
+    </CommandPlacement>
+  </CommandPlacements>
+
+  <VisibilityConstraints>
+    <VisibilityItem guid="guidExtensionPackageCmdSet" id="CopyCommandId" context="guidTestProjectUIContext" />
+  </VisibilityConstraints>
+
+  <KeyBindings>
+    <KeyBinding guid="guidExtensionPackageCmdSet" id="CopyCommandId" editor="guidCSharpEditor"
+                mod1="Control Alt" key1="C" mod2="Control Alt" key2="T" />
+    <KeyBinding guid="guidExtensionPackageCmdSet" id="CopyCommandId" editor="guidCSharpEditorWithEncoding"
+                mod1="Control Alt" key1="C" mod2="Control Alt" key2="T" />
+    <KeyBinding guid="guidExtensionPackageCmdSet" id="CopyCommandId" editor="guidFSharpEditor"
+                mod1="Control Alt" key1="C" mod2="Control Alt" key2="T" />
+  </KeyBindings>
+
+  <Symbols>
+    <!-- GUID and ID for Test menu as defined by Visual Studio -->
+    <GuidSymbol name="guidVSTestMenu" value="{1E198C22-5980-4E7E-92F3-F73168D1FB63}">
+      <IDSymbol name="IDM_VS_MENU_TEST" value="1" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidExtensionPackage" value="{2fdf8c53-bdfb-4e73-a913-55028db0bcc7}" />
+
+    <GuidSymbol name="guidExtensionPackageCmdSet" value="{1483248f-15ce-428f-becb-c73684dd498e}">
+      <IDSymbol name="CopyCommandMenuGroupId" value="0x1020" />
+      <IDSymbol name="CopyCommandId" value="0x0100" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidTestProjectUIContext" value="{8101A265-27A0-48E7-B34B-A9AD6A37F282}" />
+
+    <GuidSymbol name="guidCSharpEditor" value="{A6C744A8-0E4A-4FC6-886A-064283054674}" />
+    <GuidSymbol name="guidCSharpEditorWithEncoding" value="{08467b34-b90f-4d91-bdca-eb8c8cf3033a}" />
+    <GuidSymbol name="guidFSharpEditor" value="{8a5aa6cf-46e3-4520-a70a-7393d15233e9}" />
+  </Symbols>
+</CommandTable>
