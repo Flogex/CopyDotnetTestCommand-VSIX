@@ -2,7 +2,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
         <Identity Id="CopyDotnetTestCommand.92c4e2aa-7c31-4a02-949b-29d58a1e1589" Version="0.1" Language="en-US" Publisher="Florian Gerlinghoff" />
-        <DisplayName>CopyDotnetTestCommand</DisplayName>
+        <DisplayName>Copy Dotnet Test Command</DisplayName>
         <Description xml:space="preserve">Copy the 'dotnet test' command to execute one or several unit tests to the clipboard. Works with any method, class, or namespace in a .NET Core test project.</Description>
         <MoreInfo>https://github.com/Flogex/CopyDotnetTestCommand-VSIX</MoreInfo>
         <License>Resources\license.txt</License>
